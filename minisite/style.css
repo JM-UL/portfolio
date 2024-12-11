@@ -1,0 +1,431 @@
+/* définit les couleurs du site */
+:root {
+   /* couleur primare*/
+    --lavande: #d69ee2; 
+   /*  couleur secondaire*/
+    --brique: #ff8f6e;
+   /*  couleur de fond de page*/
+    --aubergine: #1c1b29;
+   /*  couleur du texte*/
+    --ivoire: #e4e4e6;
+   /*  couleur d'accents*/
+    --acier: #2f2f2f;
+}
+
+
+body {
+   /* texture rappellant celle de la brique (j'espère XD) */
+   /* qui se superpose à la couleur du fond */
+      background: url('medias/texture.png') repeat,
+      radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px) 0 0 / 10px 10px,
+      radial-gradient(circle, rgba(0, 0, 0, 0.02) 1px, transparent 1px) 5px 5px / 10px 10px,
+      linear-gradient(135deg, #2a223a, var(--aubergine) 50%, #1b1526);
+   /* polices modernes */
+   font-family: "Poppins", Arial, sans-serif;
+   line-height: 1.7;
+   margin: 0 auto;
+   max-width: 900px;
+   padding: 1.25em;
+   color: var(--ivoire);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+/*HEADER*/
+
+header {
+   display: flex;
+   /* centre horizontalement et verticalement le contenu */
+   justify-content: center;
+   align-items: center;
+   line-height: 1;
+   margin-top: 90px;
+   scroll-margin-top: 100px;
+}
+
+/* image de fond derrière le titre */
+.bg-img {
+/* attenue légèrement l'image pour une meilleure lisibilité */
+   background: linear-gradient(rgba(28, 27, 41, 0.1),
+      rgba(28, 27, 41, 0.3)),
+      url('medias/toulouse.jpg') no-repeat center/cover;
+   background-attachment: fixed;
+   /* elle occupe l'écran entier */
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   margin: 0;
+   padding: 0;
+}
+
+.surimg {
+   text-align: center;
+}
+
+.bg-img h1 {
+   /* overlay pour meilleure lisibilité */
+   background-color: rgb(28, 27, 41, 0.8);
+   border-radius: 20px;
+   /* titre adaptable à l'écran */
+   font-family: "Orbitron", sans-serif;
+   font-size: clamp(3.5rem, 8vw, 8rem);
+   text-align: center;
+   /* rapproche le titre du sous-titre pour plus de cohésion */
+   margin-bottom: -2%;
+   z-index: 2;
+}
+
+.bg-img p {
+   /* overlay pour meilleure lisibilité */
+   margin-bottom: 5em;
+   font-family: "Inter", sans-serif;
+   font-style: italic;
+   /* fais ressortir le texte */
+   text-shadow:
+    2px 2px 4px black, 
+    -2px -2px 4px black, 
+    2px -2px 4px black, 
+    -2px 2px 4px black,
+    4px 4px 8px black, 
+    -4px -4px 8px black, 
+    4px -4px 8px black, 
+    -4px 4px 8px black;
+   transition: text-shadow 0.3s ease;
+   font-size: clamp(1.5rem, 2vw, 2rem);
+   /* animation pour faire apparaitre le texte */
+   animation: apparait 2s ease-in-out;
+   z-index: 3;
+   padding: 0 10%;
+}
+
+/*animation qui apparait doucement sur l'image*/
+@keyframes apparait {
+   0% { opacity: 0; transform: translateY(-20px); }
+   100% { opacity: 1; transform: translateY(0); }
+}
+
+/* transforme un lien en bouton */
+.bouton {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   border: 3px solid var(--lavande);
+   padding: 0.75rem 1.5rem;
+   margin: 1em;
+   font-size: 1.5rem;
+   background: rgba(47, 47, 47, 0.9);
+   color: var(--lavande);
+   text-decoration: none;
+   border-radius: 15px;
+   transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/*crée un effet lorsqu'on survole le bouton*/
+.bouton:hover {
+   transform: scale(0.9);
+}
+
+/* met en forme la flèche */
+.scroll {
+   position: absolute;
+   bottom: 1%;
+   left: 50%;
+   transform: translateX(-50%);
+   font-size: 3rem;
+   color: var(--lavande);
+   text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(0, 255, 255, 0.2);
+   animation: bond 2s infinite;
+}
+
+a.scroll:hover {
+   text-decoration: none;
+}
+
+/*crée une animation de rebond*/
+@keyframes bond {
+   0%, 100% {
+      transform: translateX(-50%) translateY(0);
+   }
+   50% {
+      transform: translateX(-50%) translateY(-20px);
+   }
+}
+
+/* CONTENU */
+
+h1, h2 {
+   font-family: "Inter", sans-serif;
+   color: var(--lavande);
+}
+
+
+/* liens */
+a {
+   color:var(--lavande);
+   text-decoration: none;
+   transition: color 0.3s ease;
+}
+
+a:hover {
+   text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+   color: var(--brique);
+   text-decoration: underline;
+}
+
+/* les aside sont un petit encadré à droite */
+aside {
+   background-color: #1a1a1a; /* Arrière-plan légèrement plus clair que le body */
+   border: 2px solid var(--acier);
+   float: right;
+   margin: 1.9em;
+   max-width: 300px;
+   padding: 15px;
+   text-align: center;
+   color: #f5f5f5;
+}
+
+/* le texte du footer est légèrement plus petit que celui des articles */
+footer {
+   background: linear-gradient(45deg, #1a1a1a, #2f2f2f);
+   padding: 20px 10px;
+   margin: 5em 0;
+   font-size: 0.9rem;
+   color: #d1d1d1;
+   text-align: center;
+   border-top: 1px solid var(--lavande);
+}
+
+footer a:hover {
+   text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+   font-size: 1rem;
+}
+
+footer .contact {
+   width: 50%;
+}
+
+
+h3 {
+   font-family: "Inter", sans-serif;
+   text-align: center;
+   text-decoration: underline;
+   color: var(--brique);
+}
+
+img.intext {
+   border: 3px solid #121212;
+   border-radius: 20px;
+   float: left;
+   margin: 5%;
+   width: 50%;
+}
+
+img.rond {
+   border: 5px solid var(--lavande);
+   border-radius: 50%;
+   width: 50%;
+}
+
+/* barre de menu toujours visible en haut de la page */
+/* par esthétisme, elle couvre tout le viewport */
+.menu {
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: #1a1a1a;
+   width: 100%;
+   padding: 10px 0;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+   /*s'assure que le menu soit toujours au-dessus*/
+   z-index: 100;
+}
+
+/* change la couleur de la page active pour mieux se repérer */
+.menu nav a.actif {
+   color:var(--lavande);
+   text-decoration: none;
+   text-shadow: none;
+}
+
+/* annule les effets hover sur l'onglet actif */
+.menu nav a.actif:hover {
+   background-color: #1a1a1a;
+   color:var(--lavande);
+   box-shadow: none;
+   padding: 0;
+   font-size: 1.2rem;
+
+}
+
+.menu nav ul{
+   display: flex;
+   justify-content: center;
+   padding: 0;
+   margin: 0;
+   list-style: none;
+}
+
+.menu nav ul li {
+   margin: 0 20px;
+}
+
+.menu nav ul li a {
+   color: #f5f5f5;
+   text-decoration: none;
+   font-size: 1.2rem;
+   transition: background 0.3s, color 0.3s;
+}
+
+.menu nav ul li a:hover {
+   background-color: var(--acier);
+   color: var(--brique);
+   font-size: 1.25rem;
+   padding: 5px 10px;
+   box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+   border-radius: 5px;
+   transition: all 0.3s ease-in-out;
+}
+
+ol {
+   font-size: 16px;
+   font-style: italic;
+   text-align: left;
+   color: #f5f5f5;
+}
+
+ol li {
+   margin: 10px 0;
+}
+
+p {
+   color: #f5f5f5;
+   margin: 30px 0;
+   font-size: 1.125rem;
+}
+
+section {
+   margin-bottom: 1em;
+   padding: 1.25em;
+   border-radius: 10px;
+}
+
+/* tableau */
+table {
+   border-collapse: collapse;
+   margin: 0 auto;
+   text-align: left;
+}
+
+td, th {
+   padding: 10px;
+}
+
+th {
+   border: solid 1px #3e3b52;
+   text-align: center;
+   background-color:var(--lavande);
+   color: var(--aubergine)
+}
+
+tr:nth-child(odd) {
+   background-color: #2a2738;
+}
+
+
+#separateur {
+   border-top: dotted 1px #f5f5f5;
+   width: 50%;
+   margin: 50px auto;
+}
+
+/* vidéos */
+.videos {
+   border-radius: 15px;
+   position: relative;
+   width: 80%;
+   max-width: 900px;
+   margin: 5% auto;
+   /* garde l'aspect ratio */
+   padding-bottom: 56.25%;
+   height: 0;
+   overflow: hidden;
+}
+
+.videos iframe {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; 
+   height: 100%;
+}
+
+.videos video {
+   border-radius: inherit;
+   width: 100%;
+   height: auto;
+   display: block;
+}
+
+
+/* met une vidéo en arrière plan d'un texte */
+.bg-vid {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.bg-vid video {
+   border-radius: 15px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   z-index: 1;
+}
+
+.survid {
+   border-radius: 15px;
+   background-color: rgba(0, 0, 0, 0.7);
+   padding: 0 15px;
+   position: inherit;
+   z-index: 2;
+}
+
+/*le texte est presque invisibilisé si on passe la souris*/
+/*pour mieux pouvoir voir la vidéo dessous*/
+.survid:hover {
+   opacity: 0.2;
+}
+
+/* pour les petits écrans */
+@media (max-width: 600px) {
+   .bg-img {
+      background: linear-gradient(rgba(18, 18, 18, 0.1),
+         rgba(18, 18, 18, 0.9)),
+         url('medias/toulouse.jpg') no-repeat top/cover;
+   }
+
+   .bouton {
+      display: none;
+   }
+
+   nav ul li {
+      display: block;
+      text-align: center;
+      margin: 20px;
+   }
+
+   header {
+      margin-top: 180px;
+   }
+}
